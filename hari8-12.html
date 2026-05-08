@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Web App Pink 💗</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #fbc2eb, #fcd6e3);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff0f5;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #d63384;
+        }
+
+        h2 {
+            color: #c2185b;
+        }
+
+        .section {
+            margin-top: 30px;
+            border-bottom: 1px solid #f8bbd0;
+            padding-bottom: 15px;
+        }
+
+        input {
+            padding: 10px;
+            width: 65%;
+            border-radius: 8px;
+            border: 1px solid #f8bbd0;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background: #ec407a;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #d81b60;
+        }
+
+        li {
+            list-style: none;
+            padding: 8px;
+            background: #ffe4ec;
+            margin-top: 8px;
+            border-radius: 8px;
+        }
+
+        li:hover {
+            background: #ffc1d6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Mini Web App 🚀</h1>
+
+    <div class="section">
+        <h2>Masukkan Nama</h2>
+        <input type="text" id="namaInput">
+        <button onclick="tampilkanNama()">Tampilkan</button>
+        <p id="hasilNama"></p>
+    </div>
+
+    <div class="section">
+        <h2>Daftar Hobi</h2>
+        <input type="text" id="hobiInput">
+        <button onclick="tambahHobi()">Tambah</button>
+        <ul id="listHobi"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Data User</h2>
+        <input type="text" id="searchInput" placeholder="Cari user...">
+        <ul id="dataUser"></ul>
+    </div>
+</div>
+
+<script>
+const tampilkanNama = () => {
+    let nama = document.getElementById("namaInput").value;
+    document.getElementById("hasilNama").innerHTML = "Halo " + nama;
+};
+
+let daftarHobi = [];
+
+const tambahHobi = () => {
+    let input = document.getElementById("hobiInput");
+    daftarHobi.push(input.value);
+    renderHobi();
+    input.value = "";
+};
+
+const renderHobi = () => {
+    let list = document.getElementById("listHobi");
+    list.innerHTML = "";
+
+    daftarHobi.forEach(hobi => {
+        let li = document.createElement("li");
+        li.textContent = hobi;
+        list.appendChild(li);
+    });
+};
+
+let semuaUser = [];
+
+fetch("https://dummyjson.com/users")
+.then(res => res.json())
+.then(data => {
+    semuaUser = data.users;
+    renderUser(semuaUser);
+});
+
+const renderUser = (users) => {
+    let list = document.getElementById("dataUser");
+    list.innerHTML = "";
+
+    users.forEach(user => {
+        let li = document.createElement("li");
+        li.textContent = user.firstName + " " + user.lastName;
+        list.appendChild(li);
+    });
+};
+
+document.getElementById("searchInput")
+.addEventListener("keyup", () => {
+    let keyword = document.getElementById("searchInput").value.toLowerCase();
+
+    let hasil = semuaUser.filter(user =>
+        (user.firstName + " " + user.lastName).toLowerCase().includes(keyword)
+    );
+
+    renderUser(hasil);
+});
+</script>
+
+</body>
+</html>
