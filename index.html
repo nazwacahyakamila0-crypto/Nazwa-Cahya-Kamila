@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Nazwa Cahya Kamila</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg, #ffe3ec, #fff7fa);
+            min-height: 100vh;
+            padding: 20px;
+            color: #555;
+        }
+
+        .container{
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* HEADER */
+
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .header img{
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #f4a6c1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-text h1{
+            font-size: 42px;
+            color: #d96c95;
+            margin-bottom: 10px;
+        }
+
+        .header-text p{
+            font-size: 18px;
+            color: #777;
+        }
+
+        /* SECTION */
+
+        .section{
+            background: #fff0f5;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .section:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        }
+
+        h2{
+            color: #d96c95;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        p{
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* INPUT */
+
+        input{
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid #f3c2d4;
+            margin-top: 12px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus{
+            border-color: #e58aad;
+        }
+
+        /* BUTTON */
+
+        button{
+            padding: 12px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #f4a6c1;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background: #e58aad;
+            transform: scale(1.03);
+        }
+
+        /* LIST */
+
+        ul, ol{
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        li{
+            background: white;
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        ul li{
+            cursor: pointer;
+        }
+
+        ul li:hover{
+            background: #ffd9e8;
+            transform: scale(1.01);
+        }
+
+        /* LINK */
+
+        a{
+            text-decoration: none;
+            color: #d96c95;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a:hover{
+            color: #b85d82;
+        }
+
+        /* SKILL */
+
+        .skill-box{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill{
+            background: #f7aac7;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 15px;
+        }
+
+        /* FOOTER */
+
+        .footer{
+            text-align: center;
+            margin-top: 35px;
+            color: #888;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 768px){
+
+            .header{
+                flex-direction: column;
+            }
+
+            .header-text h1{
+                font-size: 32px;
+            }
+
+            h2{
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <div class="header">
+
+            <img src="foto-saya.jpg" alt="Foto Nazwa">
+
+            <div class="header-text">
+                <h1>Nazwa Cahya Kamila</h1>
+
+                <p>
+                    Mahasiswa Sistem Informasi |
+                    Belajar Frontend Developer
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- TENTANG SAYA -->
+
+        <div class="section">
+
+            <h2>Tentang Saya</h2>
+
+            <p id="profilText">
+
+                Halo 👋 Saya Nazwa Cahya Kamila.
+
+                Saya sedang belajar Pemrograman Berbasis Web Modern
+                dan tertarik dengan dunia desain website,
+                frontend development, serta teknologi digital.
+
+            </p>
+
+            <br>
+
+            <button onclick="ubahProfil()">
+                Ubah Profil
+            </button>
+
+        </div>
+
+
+        <!-- INPUT NAMA -->
+
+        <div class="section">
+
+            <h2>Masukkan Nama</h2>
+
+            <input
+                type="text"
+                id="namaInput"
+                placeholder="Ketik nama kamu..."
+            >
+
+            <button onclick="tampilkanNama()">
+                Tampilkan
+            </button>
+
+            <p id="hasilNama"></p>
+
+        </div>
+
+
+        <!-- DAFTAR HOBI -->
+
+        <div class="section">
+
+            <h2>Daftar Hobi</h2>
+
+            <input
+                type="text"
+                id="hobiInput"
+                placeholder="Masukkan hobi"
+            >
+
+            <button onclick="tambahHobi()">
+                Tambah Hobi
+            </button>
+
+            <button onclick="hapusSemua()">
+                Hapus Semua
+            </button>
+
+            <ul id="listHobi"></ul>
+
+        </div>
+
+
+        <!-- EVENT KEYBOARD -->
+
+        <div class="section">
+
+            <h2>Ketik Sesuatu</h2>
+
+            <input
+                type="text"
+                id="inputKetik"
+                placeholder="Ketik bebas..."
+            >
+
+            <p id="output"></p>
+
+        </div>
+
+
+        <!-- SKILL -->
+
+        <div class="section">
+
+            <h2>Skill Saya</h2>
+
+            <div class="skill-box">
+
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Flexbox</div>
+                <div class="skill">DOM</div>
+                <div class="skill">Local Storage</div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WEBSITE FAVORIT -->
+
+        <div class="section">
+
+            <h2>Website Favorit</h2>
+
+            <a href="https://youtube.com" target="_blank">
+                Kunjungi YouTube
+            </a>
+
+        </div>
+
+
+        <!-- TARGET -->
+
+        <div class="section">
+
+            <h2>Target Belajar</h2>
+
+            <ol>
+                <li>Belajar HTML</li>
+                <li>Belajar CSS</li>
+                <li>Belajar JavaScript</li>
+                <li>Belajar API</li>
+                <li>Menjadi Frontend Developer</li>
+            </ol>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <p>
+                © 2026 - Portfolio Nazwa Cahya Kamila
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        alert("Selamat datang di Website Nazwa 🌸");
+
+
+        // UBAH PROFIL
+
+        function ubahProfil(){
+
+            document.getElementById("profilText").innerHTML =
+
+            "Saya sedang mengembangkan skill Frontend Development dan membuat website modern menggunakan HTML, CSS, dan JavaScript ✨";
+
+        }
+
+
+        // TAMPILKAN NAMA
+
+        function tampilkanNama(){
+
+            let nama =
+            document.getElementById("namaInput").value;
+
+            if(nama === ""){
+
+                alert("Nama tidak boleh kosong!");
+                return;
+
+            }
+
+            document.getElementById("hasilNama").innerHTML =
+
+            "Halo " + nama + " 👋 Selamat datang di website saya!";
+
+        }
+
+
+        // LOCAL STORAGE
+
+        let daftarHobi =
+
+        JSON.parse(localStorage.getItem("hobi")) || [];
+
+
+        // RENDER HOBI
+
+        function renderHobi(){
+
+            let list =
+            document.getElementById("listHobi");
+
+            list.innerHTML = "";
+
+            if(daftarHobi.length === 0){
+
+                list.innerHTML =
+                "<p>Belum ada hobi 🌸</p>";
+
+                return;
+
+            }
+
+            daftarHobi.forEach((hobi, index) => {
+
+                let li =
+                document.createElement("li");
+
+                li.textContent = hobi;
+
+
+                li.onclick = function(){
+
+                    daftarHobi.splice(index, 1);
+
+                    localStorage.setItem(
+                        "hobi",
+                        JSON.stringify(daftarHobi)
+                    );
+
+                    renderHobi();
+
+                }
+
+                list.appendChild(li);
+
+            });
+
+        }
+
+
+        // TAMBAH HOBI
+
+        function tambahHobi(){
+
+            let input =
+            document.getElementById("hobiInput");
+
+            let hobi = input.value;
+
+            if(hobi === ""){
+
+                alert("Hobi tidak boleh kosong!");
+                return;
+
+            }
+
+            daftarHobi.push(hobi);
+
+            localStorage.setItem(
+                "hobi",
+                JSON.stringify(daftarHobi)
+            );
+
+            renderHobi();
+
+            input.value = "";
+
+        }
+
+
+        // HAPUS SEMUA
+
+        function hapusSemua(){
+
+            localStorage.removeItem("hobi");
+
+            daftarHobi = [];
+
+            renderHobi();
+
+        }
+
+
+        // EVENT KEYBOARD
+
+        document.getElementById("inputKetik")
+
+        .addEventListener("keyup", function(){
+
+            let isi = this.value;
+
+            document.getElementById("output")
+            .innerHTML = isi;
+
+        });
+
+
+        // LOAD AWAL
+
+        renderHobi();
+
+    </script>
+
+</body>
+</html>
